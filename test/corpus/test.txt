@@ -1,0 +1,44 @@
+=======
+VALID - object
+=======
+
+project = {
+  name = "ignis",
+  version = "0.3.0",
+  std = true,
+  target = "C",
+  source = "src",
+};
+
+---
+
+(file
+  (assignment (identifier)
+    (object (assignment (identifier) (string))
+      (assignment (identifier) (string))
+      (assignment (identifier) (boolean))
+      (assignment (identifier) (string))
+      (assignment (identifier) (string))
+    )
+  )
+)
+
+=======
+VALID - key/value pair string
+=======
+
+name = "ignis";
+
+---
+
+(file (assignment (identifier) (string)))
+
+=======
+VALID - key/value pair int
+=======
+
+num = 123;
+
+---
+
+(file (assignment (identifier) (number)))

@@ -1,0 +1,24 @@
+{
+  "name": "tree-sitter-ion",
+  "version": "1.0.0",
+  "main": "bindings/node",
+  "license": "MIT",
+  "dependencies": {
+    "nan": "^2.19.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.22.2"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.ion",
+      "injection-regex": "^ion$",
+      "file-types": [
+        "ion"
+      ],
+      "highlights": [
+        "queries/highlights.scm"
+      ]
+    }
+  ]
+}
