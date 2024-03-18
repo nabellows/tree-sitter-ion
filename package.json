@@ -1,18 +1,37 @@
 {
   "name": "tree-sitter-ion",
-  "version": "1.0.0",
+  "version": "0.0.1",
+  "description": "Ion grammar for tree-sitter",
   "main": "bindings/node",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ignis-lang/tree-sitter-ion.git"
+  },
+  "keywords": [
+    "parser",
+    "ion"
+  ],
+  "scripts": {
+    "build": "tree-sitter build-wasm && node-gyp rebuild",
+    "generate": "tree-sitter generate"
+  },
+  "author": "Ignacio Perez",
   "license": "MIT",
   "dependencies": {
-    "nan": "^2.19.0"
+    "nan": "^2.19.0",
+    "sharp": "^0.33.2"
   },
+  "files": [
+    "src/**/*",
+    "queries/**/*",
+    "tree-sitter-ion.wasm"
+  ],
   "devDependencies": {
-    "tree-sitter-cli": "^0.22.2"
+    "tree-sitter-cli": "^0.20.8"
   },
   "tree-sitter": [
     {
       "scope": "source.ion",
-      "injection-regex": "^ion$",
       "file-types": [
         "ion"
       ],
@@ -20,5 +39,8 @@
         "queries/highlights.scm"
       ]
     }
-  ]
+  ],
+  "engines": {
+    "node": "14.21.3"
+  }
 }
