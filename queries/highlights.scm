@@ -9,7 +9,7 @@
 
 ("true" "false") @keyword
 
-(identifier) @property
+(assignment (identifier) @property)
 
 (assignment) @operator
 (block) @structure
@@ -23,4 +23,3 @@
 "]" @punctuation.bracket
 "{" @punctuation.bracket
 "}" @punctuation.bracket
-
