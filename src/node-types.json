@@ -1,41 +1,6 @@
 [
   {
-    "type": "array",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "array",
-          "named": true
-        },
-        {
-          "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "object",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "assignment",
+    "type": "annotated_value",
     "named": true,
     "fields": {},
     "children": {
@@ -43,15 +8,35 @@
       "required": true,
       "types": [
         {
-          "type": "array",
+          "type": "annotated_value",
           "named": true
         },
         {
-          "type": "boolean",
+          "type": "blob",
+          "named": true
+        },
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "clob",
+          "named": true
+        },
+        {
+          "type": "decimal",
           "named": true
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "null",
           "named": true
         },
         {
@@ -59,65 +44,99 @@
           "named": true
         },
         {
-          "type": "object",
+          "type": "sexp",
           "named": true
         },
         {
           "type": "string",
           "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "block",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
+        },
         {
-          "type": "assignment",
+          "type": "struct",
           "named": true
         },
         {
-          "type": "block",
+          "type": "symbol",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "timestamp",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "boolean",
+    "type": "bool",
     "named": true,
     "fields": {}
   },
   {
-    "type": "file",
+    "type": "document",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
       "required": false,
       "types": [
         {
-          "type": "assignment",
+          "type": "annotated_value",
           "named": true
         },
         {
-          "type": "block",
+          "type": "blob",
+          "named": true
+        },
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "clob",
+          "named": true
+        },
+        {
+          "type": "decimal",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "null",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "sexp",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "struct",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        },
+        {
+          "type": "timestamp",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "object",
+    "type": "list",
     "named": true,
     "fields": {},
     "children": {
@@ -125,26 +144,223 @@
       "required": false,
       "types": [
         {
-          "type": "assignment",
+          "type": "annotated_value",
           "named": true
         },
         {
-          "type": "block",
+          "type": "blob",
+          "named": true
+        },
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "clob",
+          "named": true
+        },
+        {
+          "type": "decimal",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "null",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "sexp",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "struct",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        },
+        {
+          "type": "timestamp",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "pair",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotated_value",
+          "named": true
+        },
+        {
+          "type": "blob",
+          "named": true
+        },
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "clob",
+          "named": true
+        },
+        {
+          "type": "decimal",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "null",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "sexp",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "struct",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        },
+        {
+          "type": "timestamp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sexp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "annotated_value",
+          "named": true
+        },
+        {
+          "type": "blob",
+          "named": true
+        },
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "clob",
+          "named": true
+        },
+        {
+          "type": "decimal",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "null",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "sexp",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "struct",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        },
+        {
+          "type": "timestamp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "struct",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "pair",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
   },
   {
     "type": ",",
     "named": false
   },
   {
-    "type": ";",
+    "type": ":",
     "named": false
   },
   {
-    "type": "=",
+    "type": "::",
     "named": false
   },
   {
@@ -156,7 +372,20 @@
     "named": false
   },
   {
+    "type": "blob",
+    "named": true
+  },
+  {
     "type": "block_comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "clob",
+    "named": true
+  },
+  {
+    "type": "decimal",
     "named": true
   },
   {
@@ -169,6 +398,11 @@
   },
   {
     "type": "line_comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "null",
     "named": true
   },
   {
@@ -177,6 +411,14 @@
   },
   {
     "type": "string",
+    "named": true
+  },
+  {
+    "type": "symbol",
+    "named": true
+  },
+  {
+    "type": "timestamp",
     "named": true
   },
   {
