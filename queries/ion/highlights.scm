@@ -3,11 +3,15 @@
 (block_comment) @comment
 
 ;; Identifiers
-(identifier) @variable
+(
+ (identifier) @variable
+ (#set! "priority" 50))
 
 ;; Primitives
 (string) @string
-(symbol) @constant
+(
+ (symbol) @constant
+ (#set! "priority" 200))
 (number) @number
 (decimal) @number
 (bool) @boolean
