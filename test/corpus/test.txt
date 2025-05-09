@@ -1,44 +1,60 @@
 =======
-VALID - object
+VALID - object w/ symbols
 =======
 
-project = {
-  name = "ignis",
-  version = "0.3.0",
-  std = true,
-  target = "C",
-  source = "src",
-};
+{
+    foo:bar
+}
 
 ---
 
-(file
-  (assignment (identifier)
-    (object (assignment (identifier) (string))
-      (assignment (identifier) (string))
-      (assignment (identifier) (boolean))
-      (assignment (identifier) (string))
-      (assignment (identifier) (string))
-    )
-  )
-)
+(document
+ (struct
+  (pair
+   (key
+     (identifier))
+   (symbol
+    (identifier)))))
 
 =======
-VALID - key/value pair string
+VALID - random
 =======
 
-name = "ignis";
+123
+foo
+'bar'
+"baz"
+huh::"bar"
+2024-01-20
+{
+    foo:bar,
+    baz:{"with spaces":123.45},
+}
 
 ---
 
-(file (assignment (identifier) (string)))
+(document
+  (number)
+  (symbol
+  (identifier))
+  (symbol)
+  (string)
+  (annotated_value
+  (identifier)
+  (string))
+  (timestamp)
+  (struct
+  (pair
+    (key
+      (identifier))
+    (symbol
+      (identifier)))
+  (pair
+    (key
+      (identifier))
+    (struct
+      (pair
+        (key
+          (string))
+        (number))))))
 
-=======
-VALID - key/value pair int
-=======
-
-num = 123;
-
----
-
-(file (assignment (identifier) (number)))

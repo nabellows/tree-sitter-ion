@@ -4,3 +4,4 @@ node_modules
 *.so
 *.o
 build/
+ion.dylib

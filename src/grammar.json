@@ -121,8 +121,17 @@
       "value": "\"(?:\\\\[\"\\\\]|[^\"\\\\])*\""
     },
     "symbol": {
-      "type": "PATTERN",
-      "value": "'(?:\\\\['\\\\]|[^'\\\\])*'"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "'(?:\\\\['\\\\]|[^'\\\\])*'"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
     },
     "timestamp": {
       "type": "PATTERN",
@@ -199,7 +208,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "identifier"
+          "name": "key"
         },
         {
           "type": "STRING",
@@ -208,6 +217,27 @@
         {
           "type": "SYMBOL",
           "name": "_value"
+        }
+      ]
+    },
+    "key": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "symbol"
         }
       ]
     },

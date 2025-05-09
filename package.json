@@ -5,7 +5,7 @@
   "main": "bindings/node",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Ignis-lang/tree-sitter-ion.git"
+    "url": "https://github.com/nabellows/tree-sitter-ion.git"
   },
   "keywords": [
     "parser",
@@ -36,7 +36,10 @@
         "ion"
       ],
       "highlights": [
-        "queries/highlights.scm"
+        "queries/ion/highlights.scm"
+      ],
+      "indents": [
+        "queries/ion/indents.scm"
       ]
     }
   ],

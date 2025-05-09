@@ -31,7 +31,7 @@ module.exports = grammar({
     number: _ => /-?\d+(\.\d+)?([eE][+-]?\d+)?/,
     decimal: _ => /-?\d+d/,
     string: _ => /"(?:\\["\\]|[^"\\])*"/,
-    symbol: _ => /'(?:\\['\\]|[^'\\])*'/,
+    symbol: $ => choice(/'(?:\\['\\]|[^'\\])*'/, $.identifier),
     timestamp: _ => /\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2})?)?/,
 
     blob: _ => /\{\{[A-Za-z0-9+/=\s]*\}\}/,
@@ -40,7 +40,9 @@ module.exports = grammar({
     struct: $ =>
       seq('{', optional(commaSep1($.pair)), '}'),
     pair: $ =>
-      seq($.identifier, ':', $._value),
+      seq($.key, ':', $._value),
+
+    key: $ => choice(prec(1, $.identifier), $.string, $.symbol),
 
     list: $ =>
       seq('[', optional(commaSep1($._value)), ']'),
@@ -55,35 +57,10 @@ module.exports = grammar({
   },
 
   conflicts: $ => [
-    [$.annotated_value]
+    [$.annotated_value],
   ],
 });
 
 function commaSep1(rule) {
   return seq(rule, repeat(seq(',', rule)), optional(','));
 }
-// module.exports = grammar({
-//   name: 'ion',
-//
-//   extras: ($) => [$.line_comment, $.block_comment, /\s/],
-//
-//   rules: {
-//     file: ($) => repeat($._value),
-//     _statement: ($) => choice($.assignment, $.block),
-//     assignment: ($) => seq($.identifier, ':', $._value, optional(';')),
-//     block: ($) => seq($.identifier, '{', repeat($._statement), '}', ';'),
-//
-//     _value: ($) => choice($.string, $.number, $.boolean, $.array, $.object, $.identifier),
-//
-//     string: (_) => /"(?:\\["\\]|[^\n"\\])*"/,
-//     number: (_) => /-?\d+(\.\d+)?([eE][+-]?\d+)?/,
-//     boolean: (_) => choice('true', 'false'),
-//
-//     array: ($) => seq('[', optional(seq($._value, repeat(seq(',', $._value)))), optional(','), ']'),
-//     object: ($) => seq('{', optional(seq($._statement, repeat(seq(',', $._statement)))), optional(','), '}'),
-//     identifier: (_) => /[a-zA-Z_]\w*/,
-//
-//     line_comment: (_) => token(seq('//', /.*/)),
-//     block_comment: (_) => token(seq('/*', /[^*]*\*+([^/*][^*]*\*+)*/, '/')),
-//   },
-// });
